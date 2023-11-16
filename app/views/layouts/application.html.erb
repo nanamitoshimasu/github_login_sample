@@ -11,6 +11,15 @@
   </head>
 
   <body>
+    <header>
+      <% if current_user %>
+        <%= current_user.name %>さん
+        <%= link_to "ログアウト", log_out_path %>
+      <% else  %>
+        ゲストさん
+        <%= button_to "GitHubでログイン", "/auth/github", method: :post,  data: { turbo: false }  %>
+      <% end %>
+    </header>
     <%= yield %>
   </body>
 </html>
