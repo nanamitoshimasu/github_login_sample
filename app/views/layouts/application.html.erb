@@ -14,7 +14,7 @@
     <header>
       <% if current_user %>
         <%= current_user.name %>さん
-        <%= link_to "ログアウト", log_out_path %>
+        <%= button_to "ログアウト", log_out_path, method: :delete, data: { turbo: false } %>
       <% else  %>
         ゲストさん
         <%= button_to "GitHubでログイン", "/auth/github", method: :post,  data: { turbo: false }  %>
